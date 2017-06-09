@@ -23,6 +23,7 @@ define(function () {
     var menu = 0; // Skip to create layer menu
     var returnsitelat = null;
     var returnsitelon = null;
+    var y = "";
     var eyeDistance, returncountry, returncontinent, returnsiteID, buttonLayerName;
 
     var LayerManager = function (worldWindow) {
@@ -108,6 +109,26 @@ define(function () {
             searchInput.blur();
             this.liveSearch($("#searchText")[0].value);
         }
+       /* else {
+            var x = event.keyCode; // Get the Unicode value
+            y += String.fromCharCode(x);
+
+            var queryURL = "//10.11.4.70:8083/autosearch?keywords=" + y ;
+            alert(queryURL);
+            $.ajax({
+                url: queryURL,
+                dataType: 'json',
+                async: false,
+                success: function (qResults) {
+                    alert(qResults);
+                    alert(qResults[0].value);
+
+                    $("#searchText").autocomplete({
+                        lookup: qResults
+                    })
+                }
+            });
+        }*/
     };
 
     LayerManager.prototype.globe2Search = function (queryString) {
